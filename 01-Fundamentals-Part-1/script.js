@@ -190,20 +190,20 @@
 // if (passTest) hasDriversLiceance = true;
 // if (hasDriversLiceance) console.log("I can drive:D");
 
-function logger() {
-  console.log("My Name is Bonah");
-}
-logger();
-logger();
+// function logger() {
+//   console.log("My Name is Bonah");
+// }
+// logger();
+// logger();
 
-function friutProcesser(appels, orenges) {
-  console.log(appels, orenges);
-  const juice = `juice with ${appels} appels and ${orenges} orenges`;
-  return juice;
-}
+// function friutProcesser(appels, orenges) {
+//   console.log(appels, orenges);
+//   const juice = `juice with ${appels} appels and ${orenges} orenges`;
+//   return juice;
+// }
 
-const appelJuice = friutProcesser(2, 5);
-console.log(appelJuice);
+// const appelJuice = friutProcesser(2, 5);
+// console.log(appelJuice);
 
 //function diclaration
 function calcAge1(birthYear) {
@@ -218,3 +218,30 @@ const calcAge2 = function (birthYear) {
 const age2 = calcAge2(2001);
 
 console.log(age1, age2);
+
+//Arrow Function
+
+const calcAge3 = (birthYear) => 2066 - birthYear;
+const age3 = calcAge3(2001);
+console.log(age3);
+
+const yearsUntilRetirement = (birthYear, fristName) => {
+  const age = 2024 - birthYear;
+  const retirement = 65 - age;
+  // return retirement;
+  return `${fristName} retires in ${retirement} years`;
+};
+console.log(yearsUntilRetirement(2001, "Bonah"));
+console.log(yearsUntilRetirement(1980, "Tolasa"));
+
+const cutFriutPiece = function (friut) {
+  return friut * 4;
+};
+
+const friutProcesser = function (apples, orenges) {
+  const applePiece = cutFriutPiece(apples);
+  const orengePiece = cutFriutPiece(orenges);
+  const juice = `juice with ${applePiece} piece of apple and ${orengePiece} pieces of orenges.`;
+  return juice;
+};
+console.log(friutProcesser(2, 2));
