@@ -245,3 +245,31 @@ const friutProcesser = function (apples, orenges) {
   return juice;
 };
 console.log(friutProcesser(2, 2));
+
+const calcAverage = (a, b, c) => (a + b + c) / 3;
+console.log(calcAverage(3, 4, 5));
+
+//TEST1
+let scoreDolphins = calcAverage(46, 67, 88);
+let scoreKillos = calcAverage(23, 42, 44);
+console.log(scoreDolphins, scoreKillos);
+
+const checkWinner = function (avgDolphines, avgkillos) {
+  if (avgDolphines >= 2 * avgkillos) {
+    console.log(`Dolphine wins 🚕(${avgDolphines} vs. ${avgkillos})`);
+  } else if (avgkillos >= 2 * avgDolphines) {
+    console.log(`Killos wins car 🚕(${avgkillos} vs. ${avgDolphines})`);
+  } else {
+    console.log("NO team wins...");
+  }
+};
+
+checkWinner(scoreDolphins, scoreKillos);
+
+checkWinner(511, 111);
+
+//TEST 2
+scoreDolphins = calcAverage(23, 13, 42);
+scoreKillos = calcAverage(46, 26, 84);
+console.log(scoreDolphins, scoreKillos);
+checkWinner(scoreDolphins, scoreKillos);
