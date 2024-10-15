@@ -273,3 +273,74 @@ scoreDolphins = calcAverage(23, 13, 42);
 scoreKillos = calcAverage(46, 26, 84);
 console.log(scoreDolphins, scoreKillos);
 checkWinner(scoreDolphins, scoreKillos);
+
+//ADD ELEMENT
+const friends = ["boni", "tolga", "bora"];
+const newLength = friends.push("ozi");
+console.log(friends);
+console.log(newLength);
+
+friends.unshift("tarik");
+console.log(friends);
+
+//remove element
+friends.pop();
+const popped = friends.pop();
+console.log(popped);
+console.log(friends);
+
+friends.shift();
+console.log(friends);
+
+console.log(friends.indexOf("tolga"));
+console.log(friends.indexOf("tarik"));
+
+console.log(friends.includes("tolga"));
+console.log(friends.includes("tarik"));
+
+if (friends.includes("boni")) {
+  console.log("you have friend boni");
+}
+//CHALLENGE
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
+//const calcTip = (bill) => bill >= 50 && bill <= 300?;
+
+const bills = [125, 555, 44];
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+console.log(bills, tips);
+console.log(total);
+
+const bonah = {
+  fristName: "Bonah",
+  lastName: "Tolasa",
+  age: 2055 - 2001,
+  job: "student",
+  friends: ["tolga", "borah", "ozil"],
+};
+console.log(bonah);
+
+console.log(bonah.fristName);
+console.log(bonah["lastName"]);
+
+const nameKey = "Name";
+console.log(bonah["frist" + nameKey]);
+console.log(bonah["last" + nameKey]);
+
+const interstedIn = prompt(
+  "What do you want to know about Bonah ? Choose between fristName.lastName,age,job,and friends"
+);
+if (bonah[interstedIn]) {
+  console.log(bonah[interstedIn]);
+} else {
+  console.log(
+    "Wrong request. Choose between fristName.lastName,age,job,and friends"
+  );
+}
+
+//QUIZ
+console.log(
+  `${bonah.fristName} has ${bonah.friends.length} friends, and his best friend is called ${bonah.friends[0]}`
+);
