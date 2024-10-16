@@ -344,3 +344,67 @@ if (bonah[interstedIn]) {
 console.log(
   `${bonah.fristName} has ${bonah.friends.length} friends, and his best friend is called ${bonah.friends[0]}`
 );
+
+//OBJECT METHOD
+const bonah1 = {
+  fristName: "Bonah",
+  lastName: "Tolasa",
+  birthYear: 2001,
+  job: "student",
+  friends: ["tolga", "borah", "ozil"],
+  hasDirversLicense: true,
+
+  // calcAge: function (birthYear) {
+  //   return 2054 - birthYear;
+  // },
+
+  // calcAge: function () {
+  //   console.log(this);
+  //   return 2054 - this.birthYear;
+  // },
+
+  calcAge: function () {
+    this.age = 2054 - this.birthYear;
+    return this.age;
+  },
+};
+
+//console.log(bonah1["calcAge"](2001));
+
+console.log(bonah1.calcAge());
+console.log(bonah1.age);
+
+//CHALLENGE
+const mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+
+const john = {
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / this.height ** 2;
+    return this.bmi;
+  },
+};
+
+mark.calcBMI();
+john.calcBMI();
+console.log(mark.bmi, john.bmi);
+if (mark.bmi > john.bmi) {
+  console.log(
+    `${mark.fullName}'s BMI (${mark.bmi}) is heigher than ${john.fullName}'s BMI (${john.bmi})`
+  );
+} else if (john.bmi > mark.bmi) {
+  console.log(
+    `${john.fullName}'s BMI (${john.bmi}) is heigher than ${mark.fullName}'s BMI (${mark.bmi})`
+  );
+}
