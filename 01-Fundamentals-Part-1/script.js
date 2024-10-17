@@ -205,206 +205,245 @@
 // const appelJuice = friutProcesser(2, 5);
 // console.log(appelJuice);
 
-//function diclaration
-function calcAge1(birthYear) {
-  return 2066 - birthYear;
+// //function diclaration
+// function calcAge1(birthYear) {
+//   return 2066 - birthYear;
+// }
+// const age1 = calcAge1(2001);
+
+// //function expration
+// const calcAge2 = function (birthYear) {
+//   return 2066 - birthYear;
+// };
+// const age2 = calcAge2(2001);
+
+// console.log(age1, age2);
+
+// //Arrow Function
+
+// const calcAge3 = (birthYear) => 2066 - birthYear;
+// const age3 = calcAge3(2001);
+// console.log(age3);
+
+// const yearsUntilRetirement = (birthYear, fristName) => {
+//   const age = 2024 - birthYear;
+//   const retirement = 65 - age;
+//   // return retirement;
+//   return `${fristName} retires in ${retirement} years`;
+// };
+// console.log(yearsUntilRetirement(2001, "Bonah"));
+// console.log(yearsUntilRetirement(1980, "Tolasa"));
+
+// const cutFriutPiece = function (friut) {
+//   return friut * 4;
+// };
+
+// const friutProcesser = function (apples, orenges) {
+//   const applePiece = cutFriutPiece(apples);
+//   const orengePiece = cutFriutPiece(orenges);
+//   const juice = `juice with ${applePiece} piece of apple and ${orengePiece} pieces of orenges.`;
+//   return juice;
+// };
+// console.log(friutProcesser(2, 2));
+
+// const calcAverage = (a, b, c) => (a + b + c) / 3;
+// console.log(calcAverage(3, 4, 5));
+
+// //TEST1
+// let scoreDolphins = calcAverage(46, 67, 88);
+// let scoreKillos = calcAverage(23, 42, 44);
+// console.log(scoreDolphins, scoreKillos);
+
+// const checkWinner = function (avgDolphines, avgkillos) {
+//   if (avgDolphines >= 2 * avgkillos) {
+//     console.log(`Dolphine wins 🚕(${avgDolphines} vs. ${avgkillos})`);
+//   } else if (avgkillos >= 2 * avgDolphines) {
+//     console.log(`Killos wins car 🚕(${avgkillos} vs. ${avgDolphines})`);
+//   } else {
+//     console.log("NO team wins...");
+//   }
+// };
+
+// checkWinner(scoreDolphins, scoreKillos);
+
+// checkWinner(511, 111);
+
+// //TEST 2
+// scoreDolphins = calcAverage(23, 13, 42);
+// scoreKillos = calcAverage(46, 26, 84);
+// console.log(scoreDolphins, scoreKillos);
+// checkWinner(scoreDolphins, scoreKillos);
+
+// //ADD ELEMENT
+// const friends = ["boni", "tolga", "bora"];
+// const newLength = friends.push("ozi");
+// console.log(friends);
+// console.log(newLength);
+
+// friends.unshift("tarik");
+// console.log(friends);
+
+// //remove element
+// friends.pop();
+// const popped = friends.pop();
+// console.log(popped);
+// console.log(friends);
+
+// friends.shift();
+// console.log(friends);
+
+// console.log(friends.indexOf("tolga"));
+// console.log(friends.indexOf("tarik"));
+
+// console.log(friends.includes("tolga"));
+// console.log(friends.includes("tarik"));
+
+// if (friends.includes("boni")) {
+//   console.log("you have friend boni");
+// }
+// //CHALLENGE
+// const calcTip = function (bill) {
+//   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// };
+// //const calcTip = (bill) => bill >= 50 && bill <= 300?;
+
+// const bills = [125, 555, 44];
+// const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+// const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
+// console.log(bills, tips);
+// console.log(total);
+
+// const bonah = {
+//   fristName: "Bonah",
+//   lastName: "Tolasa",
+//   age: 2055 - 2001,
+//   job: "student",
+//   friends: ["tolga", "borah", "ozil"],
+// };
+// console.log(bonah);
+
+// console.log(bonah.fristName);
+// console.log(bonah["lastName"]);
+
+// const nameKey = "Name";
+// console.log(bonah["frist" + nameKey]);
+// console.log(bonah["last" + nameKey]);
+
+// const interstedIn = prompt(
+//   "What do you want to know about Bonah ? Choose between fristName.lastName,age,job,and friends"
+// );
+// if (bonah[interstedIn]) {
+//   console.log(bonah[interstedIn]);
+// } else {
+//   console.log(
+//     "Wrong request. Choose between fristName.lastName,age,job,and friends"
+//   );
+// }
+
+// //QUIZ
+// console.log(
+//   `${bonah.fristName} has ${bonah.friends.length} friends, and his best friend is called ${bonah.friends[0]}`
+// );
+
+// //OBJECT METHOD
+// const bonah1 = {
+//   fristName: "Bonah",
+//   lastName: "Tolasa",
+//   birthYear: 2001,
+//   job: "student",
+//   friends: ["tolga", "borah", "ozil"],
+//   hasDirversLicense: true,
+
+//   // calcAge: function (birthYear) {
+//   //   return 2054 - birthYear;
+//   // },
+
+//   // calcAge: function () {
+//   //   console.log(this);
+//   //   return 2054 - this.birthYear;
+//   // },
+
+//   calcAge: function () {
+//     this.age = 2054 - this.birthYear;
+//     return this.age;
+//   },
+// };
+
+// //console.log(bonah1["calcAge"](2001));
+
+// console.log(bonah1.calcAge());
+// console.log(bonah1.age);
+
+// //CHALLENGE
+// const mark = {
+//   fullName: "Mark Miller",
+//   mass: 78,
+//   height: 1.69,
+
+//   calcBMI: function () {
+//     this.bmi = this.mass / this.height ** 2;
+//     return this.bmi;
+//   },
+// };
+
+// const john = {
+//   fullName: "John Smith",
+//   mass: 92,
+//   height: 1.95,
+//   calcBMI: function () {
+//     this.bmi = this.mass / this.height ** 2;
+//     return this.bmi;
+//   },
+// };
+
+// mark.calcBMI();
+// john.calcBMI();
+// console.log(mark.bmi, john.bmi);
+// if (mark.bmi > john.bmi) {
+//   console.log(
+//     `${mark.fullName}'s BMI (${mark.bmi}) is heigher than ${john.fullName}'s BMI (${john.bmi})`
+//   );
+// } else if (john.bmi > mark.bmi) {
+//   console.log(
+//     `${john.fullName}'s BMI (${john.bmi}) is heigher than ${mark.fullName}'s BMI (${mark.bmi})`
+//   );
+// }
+
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`Lifting weights reptition ${rep}🏗`);
 }
-const age1 = calcAge1(2001);
-
-//function expration
-const calcAge2 = function (birthYear) {
-  return 2066 - birthYear;
-};
-const age2 = calcAge2(2001);
-
-console.log(age1, age2);
-
-//Arrow Function
-
-const calcAge3 = (birthYear) => 2066 - birthYear;
-const age3 = calcAge3(2001);
-console.log(age3);
-
-const yearsUntilRetirement = (birthYear, fristName) => {
-  const age = 2024 - birthYear;
-  const retirement = 65 - age;
-  // return retirement;
-  return `${fristName} retires in ${retirement} years`;
-};
-console.log(yearsUntilRetirement(2001, "Bonah"));
-console.log(yearsUntilRetirement(1980, "Tolasa"));
-
-const cutFriutPiece = function (friut) {
-  return friut * 4;
-};
-
-const friutProcesser = function (apples, orenges) {
-  const applePiece = cutFriutPiece(apples);
-  const orengePiece = cutFriutPiece(orenges);
-  const juice = `juice with ${applePiece} piece of apple and ${orengePiece} pieces of orenges.`;
-  return juice;
-};
-console.log(friutProcesser(2, 2));
-
-const calcAverage = (a, b, c) => (a + b + c) / 3;
-console.log(calcAverage(3, 4, 5));
-
-//TEST1
-let scoreDolphins = calcAverage(46, 67, 88);
-let scoreKillos = calcAverage(23, 42, 44);
-console.log(scoreDolphins, scoreKillos);
-
-const checkWinner = function (avgDolphines, avgkillos) {
-  if (avgDolphines >= 2 * avgkillos) {
-    console.log(`Dolphine wins 🚕(${avgDolphines} vs. ${avgkillos})`);
-  } else if (avgkillos >= 2 * avgDolphines) {
-    console.log(`Killos wins car 🚕(${avgkillos} vs. ${avgDolphines})`);
-  } else {
-    console.log("NO team wins...");
-  }
-};
-
-checkWinner(scoreDolphins, scoreKillos);
-
-checkWinner(511, 111);
-
-//TEST 2
-scoreDolphins = calcAverage(23, 13, 42);
-scoreKillos = calcAverage(46, 26, 84);
-console.log(scoreDolphins, scoreKillos);
-checkWinner(scoreDolphins, scoreKillos);
-
-//ADD ELEMENT
-const friends = ["boni", "tolga", "bora"];
-const newLength = friends.push("ozi");
-console.log(friends);
-console.log(newLength);
-
-friends.unshift("tarik");
-console.log(friends);
-
-//remove element
-friends.pop();
-const popped = friends.pop();
-console.log(popped);
-console.log(friends);
-
-friends.shift();
-console.log(friends);
-
-console.log(friends.indexOf("tolga"));
-console.log(friends.indexOf("tarik"));
-
-console.log(friends.includes("tolga"));
-console.log(friends.includes("tarik"));
-
-if (friends.includes("boni")) {
-  console.log("you have friend boni");
+const bonah = [
+  "Bonah",
+  "Tolasa",
+  2055 - 2001,
+  "student",
+  ["tolga", "borah", "ozil"],
+];
+for (let i = 0; i < 5; i++) {
+  console.log(bonah[i], typeof bonah[i]);
 }
-//CHALLENGE
+
 const calcTip = function (bill) {
   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 };
-//const calcTip = (bill) => bill >= 50 && bill <= 300?;
+const bills = [22, 295, 176, 445, 37, 104, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
 
-const bills = [125, 555, 44];
-const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
-const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]];
-console.log(bills, tips);
-console.log(total);
-
-const bonah = {
-  fristName: "Bonah",
-  lastName: "Tolasa",
-  age: 2055 - 2001,
-  job: "student",
-  friends: ["tolga", "borah", "ozil"],
-};
-console.log(bonah);
-
-console.log(bonah.fristName);
-console.log(bonah["lastName"]);
-
-const nameKey = "Name";
-console.log(bonah["frist" + nameKey]);
-console.log(bonah["last" + nameKey]);
-
-const interstedIn = prompt(
-  "What do you want to know about Bonah ? Choose between fristName.lastName,age,job,and friends"
-);
-if (bonah[interstedIn]) {
-  console.log(bonah[interstedIn]);
-} else {
-  console.log(
-    "Wrong request. Choose between fristName.lastName,age,job,and friends"
-  );
+for (let i = 0; i < bills.length; i++) {
+  const tip = calcTip(bills[i]);
+  tips.push(tip);
+  totals.push(tip + bills[i]);
 }
+console.log(bills, tips, totals);
 
-//QUIZ
-console.log(
-  `${bonah.fristName} has ${bonah.friends.length} friends, and his best friend is called ${bonah.friends[0]}`
-);
-
-//OBJECT METHOD
-const bonah1 = {
-  fristName: "Bonah",
-  lastName: "Tolasa",
-  birthYear: 2001,
-  job: "student",
-  friends: ["tolga", "borah", "ozil"],
-  hasDirversLicense: true,
-
-  // calcAge: function (birthYear) {
-  //   return 2054 - birthYear;
-  // },
-
-  // calcAge: function () {
-  //   console.log(this);
-  //   return 2054 - this.birthYear;
-  // },
-
-  calcAge: function () {
-    this.age = 2054 - this.birthYear;
-    return this.age;
-  },
+const calcAverage = function (arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
 };
-
-//console.log(bonah1["calcAge"](2001));
-
-console.log(bonah1.calcAge());
-console.log(bonah1.age);
-
-//CHALLENGE
-const mark = {
-  fullName: "Mark Miller",
-  mass: 78,
-  height: 1.69,
-
-  calcBMI: function () {
-    this.bmi = this.mass / this.height ** 2;
-    return this.bmi;
-  },
-};
-
-const john = {
-  fullName: "John Smith",
-  mass: 92,
-  height: 1.95,
-  calcBMI: function () {
-    this.bmi = this.mass / this.height ** 2;
-    return this.bmi;
-  },
-};
-
-mark.calcBMI();
-john.calcBMI();
-console.log(mark.bmi, john.bmi);
-if (mark.bmi > john.bmi) {
-  console.log(
-    `${mark.fullName}'s BMI (${mark.bmi}) is heigher than ${john.fullName}'s BMI (${john.bmi})`
-  );
-} else if (john.bmi > mark.bmi) {
-  console.log(
-    `${john.fullName}'s BMI (${john.bmi}) is heigher than ${mark.fullName}'s BMI (${mark.bmi})`
-  );
-}
+console.log(calcAverage([2, 3, 7]));
+console.log(calcAverage(totals));
+console.log(calcAverage(tips));
