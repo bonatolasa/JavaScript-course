@@ -73,6 +73,9 @@ const restaurant = {
   },
 };
 
+//REST PATERN AND PARAMETER
+//1.Destructing
+
 //Spread , because on Right side of =
 const arr = [1, 2, ...[3, 4]];
 
