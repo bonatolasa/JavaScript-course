@@ -48,8 +48,61 @@ const restaurant = {
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
+
+  orderDeliver: function ({
+    starterIndex = 1,
+    mainIndex = 0,
+    time = '10:00',
+    address,
+  }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
 };
 
+/////////////////////////
+//DESTRUCTERING Object
+restaurant.orderDeliver({
+  time: '22:07',
+  address: 'via del sole, 21',
+  mainIndex: 2,
+  starterIndex: 2,
+});
+
+restaurant.orderDeliver({ address: 'via del sole, 21', starterIndex: 1 });
+
+const { name, openingHours, categories } = restaurant;
+console.log(name, openingHours, categories);
+
+const {
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
+
+//Default values
+const { menu = [], starterMenu: starter = [] } = restaurant;
+console.log(menu, starter);
+
+//Mutating variables
+let a = 111;
+let b = 949;
+const obj = { a: 23, b: 55, c: 18 };
+({ a, b } = obj);
+console.log(a, b);
+
+//Nested objects
+const {
+  sat: { open: o, close: c },
+} = openingHours;
+console.log(o, c);
+//console.log(open, close);
+
+/*
+///////////////////////////////
+//DESTRUCTERING ARRAY 
 const arr = [2, 3, 4];
 const a = arr[0];
 const b = arr[1];
@@ -85,3 +138,4 @@ console.log(i, j, k);
 //Default values
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
+*/
