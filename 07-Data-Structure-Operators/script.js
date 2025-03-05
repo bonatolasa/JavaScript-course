@@ -65,8 +65,48 @@ const restaurant = {
       `Here is your delisious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
+
+  orderPizza: function (mainIngredient, b, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(b);
+    console.log(otherIngredients);
+  },
 };
 
+//Spread , because on Right side of =
+const arr = [1, 2, ...[3, 4]];
+
+//REST , because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, d, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+console.log(pizza, risotto, d, otherFood);
+
+//Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(sat, weekdays);
+
+//Functions
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) sum += numbers[i];
+  console.log(sum);
+};
+
+add(2, 3);
+add(2, 3, 6, 5);
+add(2, 3, 4, 5, 7);
+
+const x = [23, 4, 5];
+add(...x);
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+restaurant.orderPizza('mashrooms');
+/*
 ////////////////////////////
 //The Spread Operator(...)
 
@@ -120,6 +160,7 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'haile restaurant';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
+*/
 
 /*
 /////////////////////////
