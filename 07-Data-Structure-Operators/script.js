@@ -73,6 +73,43 @@ const restaurant = {
   },
 };
 
+/*
+//The nullish coalescing operator
+restaurant.numGuests = 0;
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+
+//Nullish: null and undefined (NOT 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
+*/
+
+//SHORT CIRCUITING (&& and ||)
+console.log('---- OR ----');
+//Use ANY data type, return ANY data type, short-circuiting
+console.log(3 || 'bonah');
+console.log('' || 'bonah');
+console.log(true || 0);
+console.log(false || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || '' || null || 'hello' || 23 || null);
+
+restaurant.numGuests = 0;
+const guest1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guest1);
+
+const guest2 = restaurant.numGuests || 10;
+console.log(guest2);
+
+console.log('______AND________');
+console.log(0 && 'bonah');
+console.log(7 && 'bonah');
+
+console.log('Hello' && 23 && null && 'jonah');
+console.log(undefined || null);
+
+/*
 //REST PATERN AND PARAMETER
 //1.Destructing
 
@@ -109,6 +146,8 @@ add(...x);
 
 restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 restaurant.orderPizza('mashrooms');
+*/
+
 /*
 ////////////////////////////
 //The Spread Operator(...)
