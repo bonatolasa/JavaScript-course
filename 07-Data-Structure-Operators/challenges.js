@@ -32,7 +32,7 @@ const game = {
     ],
   ],
   score: '4:0',
-  scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+  scored: ['keen', 'Muzeylaa', 'keen', 'Hummels'],
   date: 'Nov 9th, 2037',
   odds: {
     team1: 1.33,
@@ -55,3 +55,22 @@ console.log(allPlayers);
 
 // 4 .
 const players1Final = [...player1, 'Thiago', 'Coutinho', 'Periscic'];
+
+// 5 .
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+console.log(team1, draw, team2);
+
+// 6 .
+const printGoals = function (...players) {
+  console.log(players);
+  console.log(`${players.length} goals were scored`);
+};
+
+// printGoals('keen', 'Muzeylaa', 'keen', 'Hummels');
+printGoals(...game.scored);
+
+// 7 .
+team1 < team2 && console.log('Time 1 is more likely to win');
+team1 > team2 && console.log('Time 2 is more likely to win');
