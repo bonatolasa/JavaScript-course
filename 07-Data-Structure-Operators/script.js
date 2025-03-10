@@ -72,6 +72,40 @@ const restaurant = {
   },
 };
 
+///////////////////////
+//Sets
+const orderSets = new Set([
+  'pasta',
+  'pizza',
+  'risetto',
+  'mushroom',
+  'pasta',
+  'pizza',
+]);
+console.log(orderSets);
+console.log(new Set('bonaah'));
+console.log(orderSets.size);
+console.log(orderSets.has('pizza'));
+console.log(orderSets.has('bread'));
+console.log(orderSets.add('Glaric Bread'));
+orderSets.add('Glaric Bread');
+orderSets.delete('risetto');
+// orderSets.clear();
+console.log(orderSets);
+
+for (const order of orderSets) console.log(order);
+
+const staff = ['waiter', 'chef', 'waiter', 'manager', 'chef', 'waiter'];
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+
+console.log(
+  new Set(['pasta', 'pizza', 'risetto', 'mushroom', 'pasta', 'pizza']).size
+);
+
+console.log(new Set('BonahTolasa').size);
+
+/*
 ///////////////////////////////////////////
 //Object properties :object Keys,values, and Entries
 //  Property NAMES
@@ -97,6 +131,7 @@ const entries = Object.entries(openingHours);
 for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we open at ${open} and close at ${close}`);
 }
+  */
 
 /*
 ////////////////////////////////////
