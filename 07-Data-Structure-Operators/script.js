@@ -72,12 +72,40 @@ const restaurant = {
   },
 };
 
+///////////////////////////////////////////
+//Object properties :object Keys,values, and Entries
+//  Property NAMES
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+let openStr = `We are open on ${properties.length} days: `;
+// console.log(openStr);
+for (const day of properties) {
+  // console.log(day);
+  openStr += `${day} `;
+}
+console.log(openStr);
+
+//Property VALUES
+const values = Object.values(openingHours);
+console.log(values);
+
+//Entire object
+const entries = Object.entries(openingHours);
+// console.log(entries);
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and close at ${close}`);
+}
+
+/*
+////////////////////////////////////
+//WITH optional chaining
 if (restaurant.openingHours && restaurant.openingHours.mon)
   console.log(restaurant.openingHours.mon.open);
 
 // console.log(restaurant.openingHours.mon?.open);
 
-//WITH optional chaining
 console.log(restaurant.openingHours.mon?.open);
 console.log(restaurant.openingHours?.mon?.open);
 
@@ -98,6 +126,7 @@ const users = [{ name: 'bonah', email: 'tolboni614@gmail.com' }];
 // const users = [];
 
 console.log(users[0]?.name ?? 'User array empty');
+*/
 
 /*
 //////////////////////
