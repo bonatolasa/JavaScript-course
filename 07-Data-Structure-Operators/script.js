@@ -1,9 +1,5 @@
 'use strict';
 
-// Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
 const italianFoods = new Set([
   'pasta',
   'gnocchi',
@@ -72,6 +68,49 @@ const restaurant = {
   },
 };
 
+////////////////////////////
+//Working with string-part1
+const airline = 'TAP Air Ethiopia';
+const plane = 'BOING 378';
+
+console.log(plane[0]);
+console.log(plane[1]);
+console.log(plane[4]);
+console.log('B378'[0]);
+
+console.log(airline.length);
+console.log('B378'.length);
+
+console.log(airline.indexOf('i'));
+console.log(airline.lastIndexOf('i'));
+console.log(airline.indexOf('Ethiopia'));
+
+console.log(airline.slice(4));
+console.log(airline.slice(4, 7));
+
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') + 1));
+
+console.log(airline.slice(-2));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+  // I and O ARE Middle seats
+  const s = seat.slice(-1);
+  if (s === 'I' || s === 'O') console.log('You got the middle seat 😍');
+  else console.log('You got lucky 😎😎');
+};
+
+checkMiddleSeat('11A');
+checkMiddleSeat('23O');
+checkMiddleSeat('11F');
+
+console.log(new String('Bonahi'));
+console.log(typeof new String('Bonahi'));
+
+console.log(typeof new String('Bonahi').slice(-1));
+
+/*
 ////////////////////////////////
 // Map Iteration
 const question = new Map([
@@ -106,6 +145,7 @@ console.log([...question]);
 // console.log(question.entries());
 console.log([...question.keys()]);
 console.log([...question.values()]);
+*/
 
 /*
 ///////////////////////
