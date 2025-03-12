@@ -31,7 +31,6 @@ HINT 4: This challenge is difficult on purpose, so start watching the solution i
 Afterwards, test with your own test data!
 */
 
-/*
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
 document.querySelector('button').addEventListener('click', function () {
@@ -49,7 +48,6 @@ document.querySelector('button').addEventListener('click', function () {
     console.log(`${result.padEnd(20)}${'✅'.repeat(i + 1)}`);
   }
 });
-*/
 
 //////////////////////////
 // Challenge 3
