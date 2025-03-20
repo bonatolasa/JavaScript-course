@@ -71,6 +71,7 @@ console.log(flight, bonah);
 ckeckIn(flight, bonah);
 */
 
+/*
 ////////////////////////////
 //Function accepting callbacks function
 
@@ -98,3 +99,24 @@ const high5 = function () {
 };
 document.body.addEventListener('click', high5);
 ['bona', 'martha', 'fiyameta'].forEach(high5);
+*/
+
+////////////////////////////////////
+//Function returning function
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greetingHey = greet('Hey');
+greetingHey('bonah');
+greetingHey('Guta');
+
+greet('Hello')('bonah');
+
+//change to arrow function
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+
+greetArr('Hi')('bonah');
