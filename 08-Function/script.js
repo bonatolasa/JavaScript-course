@@ -34,6 +34,7 @@ createBooking('LE32', undefined, 222);
 console.log(bookings);
 */
 
+/*
 ///////////////////////
 // Arguments works value vs refrence
 const flight = '  ET234';
@@ -68,3 +69,32 @@ const newPassport = function (person) {
 newPassport(bonah);
 console.log(flight, bonah);
 ckeckIn(flight, bonah);
+*/
+
+////////////////////////////
+//Function accepting callbacks function
+
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFristWord = function (str) {
+  const [frist, ...others] = str.split(' ');
+  return [frist.toUpperCase(), ...others].join(' ');
+};
+
+// Higher-order function
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+  console.log(`Transformed by : ${fn.name}`);
+};
+transformer('JavaScript is the best!', upperFristWord);
+transformer('JavaScript is the best!', oneWord);
+
+//JS uses callbacks all the time
+const high5 = function () {
+  console.log('👋');
+};
+document.body.addEventListener('click', high5);
+['bona', 'martha', 'fiyameta'].forEach(high5);
