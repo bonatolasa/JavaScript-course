@@ -101,6 +101,7 @@ document.body.addEventListener('click', high5);
 ['bona', 'martha', 'fiyameta'].forEach(high5);
 */
 
+/*
 ////////////////////////////////////
 //Function returning function
 
@@ -120,3 +121,50 @@ greet('Hello')('bonah');
 const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 
 greetArr('Hi')('bonah');
+*/
+
+const bole = {
+  airline: 'Bole',
+  iataCode: 'ET',
+  bookings: [],
+  // book:function(){};
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+  },
+};
+bole.book(778, 'Bonah Tolasa');
+bole.book(665, 'John Daniel');
+
+const jimma = {
+  airline: 'Jimma',
+  iataCode: 'ETJ',
+  bookings: [],
+};
+
+const book = bole.book;
+
+//Does NOT work
+//book(23,'merry gasha');
+
+book.call(jimma, 23, 'merry gasha');
+console.log(jimma);
+
+book.call(bole, 778, 'Mamo Ligdi');
+console.log(bole);
+
+const nekmte = {
+  airline: 'Nekmte',
+  iataCode: 'NEKET',
+  bookings: [],
+};
+
+book.call(nekmte, 347, 'Moti Taresa');
+
+//Apply method
+const flightData = [347, 'Monera Taresa'];
+book.apply(nekmte, flightData);
+console.log(nekmte);
+
+book.call(nekmte, ...flightData);
