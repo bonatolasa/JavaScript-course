@@ -148,7 +148,7 @@ const book = bole.book;
 //Does NOT work
 //book(23,'merry gasha');
 
-book.call(jimma, 23, 'merry gasha');
+book.call(jimma, 23, 'Merry gasha');
 console.log(jimma);
 
 book.call(bole, 778, 'Mamo Ligdi');
