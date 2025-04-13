@@ -148,6 +148,7 @@ const book = bole.book;
 //Does NOT work
 //book(23,'merry gasha');
 
+//CALL METHOD
 book.call(jimma, 23, 'Merry gasha');
 console.log(jimma);
 
@@ -168,3 +169,49 @@ book.apply(nekmte, flightData);
 console.log(nekmte);
 
 book.call(nekmte, ...flightData);
+
+// Bind method
+//book.call(bole, 778, 'Mamo Ligdi');
+
+const bookBL = book.bind(bole);
+const bookNT = book.bind(nekmte);
+const bookJI = book.bind(jimma);
+
+bookBL(23, 'Gudde Duguma');
+const bookBL23 = book.bind(bole, 23);
+bookBL23('Boni Toli');
+bookBL23('Martin Toli');
+
+//With Event Listeners
+bole.planes = 300;
+bole.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+bole.buyPlane();
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', bole.buyPlane.bind(bole));
+
+//partial application
+
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+// addVAT = value => value +value*0.23;
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
+console.log(addVAT2(23));
