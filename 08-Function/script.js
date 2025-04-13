@@ -123,6 +123,8 @@ const greetArr = greeting => name => console.log(`${greeting} ${name}`);
 greetArr('Hi')('bonah');
 */
 
+/*
+
 const bole = {
   airline: 'Bole',
   iataCode: 'ET',
@@ -215,3 +217,24 @@ const addTaxRate = function (rate) {
 const addVAT2 = addTaxRate(0.23);
 console.log(addVAT2(100));
 console.log(addVAT2(23));
+
+*/
+
+const runOnce = function () {
+  console.log('This will never run again');
+};
+runOnce();
+
+// Immediately invoked function expretion
+(function () {
+  console.log('This will never run again');
+})();
+
+(() => console.log('This will Also never run again'))();
+
+{
+  const isPrivate = 23;
+  var offPrivate = 26;
+}
+// console.log(isPrivate);
+console.log(offPrivate);
