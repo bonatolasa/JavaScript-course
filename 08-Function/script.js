@@ -242,6 +242,7 @@ console.log(offPrivate);
 */
 
 /*
+// CLOSURES
 const secureBooking = function () {
   let passengerCount = 0;
 
