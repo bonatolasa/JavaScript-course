@@ -220,6 +220,7 @@ console.log(addVAT2(23));
 
 */
 
+/*
 const runOnce = function () {
   console.log('This will never run again');
 };
@@ -238,3 +239,21 @@ runOnce();
 }
 // console.log(isPrivate);
 console.log(offPrivate);
+*/
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker);
