@@ -71,7 +71,7 @@ movements.forEach(function (mov, i, arr) {
   if (mov > 0) {
     console.log(`movement ${i + 1}: You Deposited ${mov}`);
   } else {
-    console.log(`movement ${i + 1}: You Withdraw ${Math.abs(mov)}`);
+    console.log(`movement ${i + 1}: You Withdrew ${Math.abs(mov)}`);
   }
 });
 
