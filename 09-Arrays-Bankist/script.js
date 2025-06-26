@@ -81,7 +81,7 @@ displayMovements(account1.movements);
 
 const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, cur) => acc + cur, 0);
-  labelBalance.textContent = balance;
+  labelBalance.textContent = `${balance} Birr`;
 };
 calcDisplayBalance(account1.movements);
 
