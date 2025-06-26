@@ -118,7 +118,21 @@ const createUsername = function (accs) {
   });
 };
 createUsername(accounts);
-console.log(accounts);
+
+// Event Handler
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  // prevent form from submitting
+  e.preventDefault();
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    console.log('Login');
+  }
+});
 /////////////////////////////////////////////////
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
