@@ -120,7 +120,7 @@ const updateUI = function (acc) {
   //Display movements
   displayMovements(acc.movements);
   //Display Balance
-  calcDisplayBalance(acc.movements);
+  calcDisplayBalance(acc);
   //Display Summary
   calcDisplaySummary(acc);
 };
