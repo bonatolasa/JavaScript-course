@@ -61,7 +61,7 @@ const account3 = {
 
 const account4 = {
   owner: 'Sarah Abynew',
-  movements: [430, 1000, 700, 50, 90],
+  movements: [430, 1000, 700, 50, 90, 500, 1500, 100],
   interestRate: 1,
   pin: 4444,
   movementsDates: [
