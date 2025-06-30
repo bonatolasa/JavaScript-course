@@ -20,6 +20,7 @@ const account1 = {
     '2014-07-11T23:36:17.929Z',
     '2016-07-12T10:51:36.790Z',
   ],
+  currency: 'USD',
   locale: 'en-US',
 };
 
@@ -38,7 +39,8 @@ const account2 = {
     '2017-06-25T18:49:59.371Z',
     '2017-07-26T12:01:20.894Z',
   ],
-  locale: 'af-ET',
+  currency: 'ETB',
+  locale: 'en-ET',
 };
 
 const account3 = {
@@ -56,6 +58,7 @@ const account3 = {
     '2016-06-25T18:49:59.371Z',
     '2017-07-26T12:01:20.894Z',
   ],
+  currency: 'USD',
   locale: 'en-US',
 };
 
@@ -74,7 +77,8 @@ const account4 = {
     '2017-06-25T18:49:59.371Z',
     '2017-07-26T12:01:20.894Z',
   ],
-  locale: 'af-ET',
+  currency: 'ETB',
+  locale: 'en-ET',
 };
 
 const accounts = [account1, account2, account3, account4];
@@ -125,6 +129,13 @@ const formatMovementDate = function (date, locale) {
   return new Intl.DateTimeFormat(locale).format(date);
 };
 
+const formatCur = function (value, locale, currency) {
+  return new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: currency,
+  }).format(value);
+};
+
 const displayMovements = function (acc, sort = false) {
   containerMovements.innerHTML = '';
   // containerMovements.textContent = 0;
@@ -139,12 +150,14 @@ const displayMovements = function (acc, sort = false) {
     const date = new Date(acc.movementsDates[i]);
     const displayDate = formatMovementDate(date, acc.locale);
 
+    const formattedMov = formatCur(mov, acc.locale, acc.currency);
+
     const html = ` <div class="movements__row">
           <div class="movements__type movements__type--${type}">
             ${i + 1} ${type}
           </div>
           <div class="movements__date">${displayDate}</div>
-          <div class="movements__value">${mov.toFixed(2)} Birr</div>
+          <div class="movements__value">${formattedMov}</div>
         </div>`;
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
@@ -152,19 +165,19 @@ const displayMovements = function (acc, sort = false) {
 
 const calcDisplayBalance = function (acc) {
   acc.balance = acc.movements.reduce((acc, cur) => acc + cur, 0);
-  labelBalance.textContent = `${acc.balance.toFixed(2)} Birr`;
+  labelBalance.textContent = formatCur(acc.balance, acc.locale, acc.currency);
 };
 
 const calcDisplaySummary = function (acc) {
   const income = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, cur) => acc + cur, 0);
-  labelSumIn.textContent = `${income.toFixed(2)} Birr`;
+  labelSumIn.textContent = formatCur(income, acc.locale, acc.currency);
 
   const out = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
-  labelSumOut.textContent = `${Math.abs(out).toFixed(2)} Birr`;
+  labelSumOut.textContent = formatCur(Math.abs(out), acc.locale, acc.currency);
 
   const interest = acc.movements
     .filter(mov => mov > 0)
@@ -174,7 +187,7 @@ const calcDisplaySummary = function (acc) {
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
-  labelSumInterest.textContent = `${interest.toFixed(2)} Birr`;
+  labelSumInterest.textContent = formatCur(interest, acc.locale, acc.currency);
 };
 
 const createUsername = function (accs) {
