@@ -370,3 +370,9 @@ const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
 currenciesUnique.forEach(function (value, _, map) {
   console.log(`${value}: ${value}`);
 });
+
+//setInterval
+setInterval(function () {
+  const now = new Date();
+  console.log(now);
+}, 1000);
