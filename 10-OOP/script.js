@@ -121,6 +121,7 @@ bmw.brake();
 bmw.accelerate();
 */
 
+/*
 //////////////////////////////////////
 //ES6 classes
 // Class expression
@@ -227,7 +228,7 @@ console.log(steven.__proto__ === PersonProto);
 const sarah = Object.create(PersonProto);
 sarah.init('Sarah', 1979);
 sarah.calcAge();
-
+*/
 ///////////////////////////////////////
 // Coding Challenge
 
@@ -239,7 +240,7 @@ sarah.calcAge();
 
 DATA CAR 1: 'Ford' going at 120 km/h
 */
-
+/*
 class CarCl {
   constructor(make, speed) {
     this.make = make;
@@ -272,3 +273,7 @@ ford.accelerate();
 ford.brake();
 ford.speedUS = 50;
 console.log(ford);
+*/
+
+//////////////////////////////////
+//
