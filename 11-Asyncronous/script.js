@@ -24,8 +24,14 @@ const renderCountry = function (data, className = '') {
   </article>`;
 
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  countriesContainer.style.opacity = 1;
+  // countriesContainer.style.opacity = 1;
 };
+
+const renderError = function (msg) {
+  countriesContainer.insertAdjacentHTML('beforeend', msg);
+  // countriesContainer.style.opacity = 1;
+};
+
 /*
 const getConutryAndNeighbour = function (country) {
   const request = new XMLHttpRequest();
@@ -79,7 +85,17 @@ const getCountryData = function (country) {
     .then(data => {
       if (!data) return;
       renderCountry(data[0] ?? data, 'neighbour');
+    })
+    .catch(err => {
+      console.error(`${err}🎇😎😎🎇`);
+      renderError(`Something went wrong 🎇😎😎🎇 ${err.message}. Try Again!`);
+    })
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
     });
 };
+btn.addEventListener('click', function () {
+  getCountryData('ethiopia');
+});
 
-getCountryData('djibouti');
+// getCountryData('djibouuyguhti');
