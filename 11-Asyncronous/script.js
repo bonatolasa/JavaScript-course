@@ -60,9 +60,26 @@ getConutryAndNeighbour('ethiopia');
 // getConutryAndNeighbour('germany');
 */
 const getCountryData = function (country) {
-  const request = fetch(`https://restcountries.com/v3.1/name/${country}`)
+  //country 1
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
     .then(response => response.json())
-    .then(data => renderCountry(data[0]));
+    .then(data => {
+      renderCountry(data[0]);
+      const neighbour = data[0].borders?.[0];
+
+      if (!neighbour) return;
+
+      //country 2
+      return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`);
+    })
+    .then(response => {
+      if (!response) return;
+      return response.json();
+    })
+    .then(data => {
+      if (!data) return;
+      renderCountry(data[0] ?? data, 'neighbour');
+    });
 };
 
-getCountryData('ethiopia');
+getCountryData('djibouti');
