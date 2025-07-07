@@ -26,7 +26,7 @@ const renderCountry = function (data, className = '') {
   countriesContainer.insertAdjacentHTML('beforeend', html);
   countriesContainer.style.opacity = 1;
 };
-
+/*
 const getConutryAndNeighbour = function (country) {
   const request = new XMLHttpRequest();
   request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
@@ -58,3 +58,11 @@ const getConutryAndNeighbour = function (country) {
 getConutryAndNeighbour('ethiopia');
 // getConutryAndNeighbour('usa');
 // getConutryAndNeighbour('germany');
+*/
+const getCountryData = function (country) {
+  const request = fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(response => response.json())
+    .then(data => renderCountry(data[0]));
+};
+
+getCountryData('ethiopia');
