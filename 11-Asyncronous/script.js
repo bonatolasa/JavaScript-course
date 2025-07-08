@@ -221,61 +221,58 @@ const whereAmI = async function () {
 };
 
 btn.addEventListener('click', whereAmI);
-*/
+ */
 
-///////////////////////////////////////
-// Consuming Promises with Async/Await
-// Error Handling With try...catch
+///////////////////////////////////////////
+// Returning Values from Async Functions
 const getPosition = function () {
   return new Promise(function (resolve, reject) {
     navigator.geolocation.getCurrentPosition(resolve, reject);
   });
 };
-// fetch(`https://restcountries.com/v2/name/${country}`).then(res => console.log(res))
 
 const whereAmI = async function () {
   try {
-    // Geolocation
+    // 1. Get coordinates
     const pos = await getPosition();
     const { latitude: lat, longitude: lng } = pos.coords;
 
-    // Reverse geocoding
+    // 2. Reverse geocoding
     const resGeo = await fetch(
       `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`
     );
     if (!resGeo.ok) throw new Error('Problem getting location data');
-
     const dataGeo = await resGeo.json();
     console.log(dataGeo);
 
-    // Country data
+    // 3. Fetch country data
     const res = await fetch(
       `https://restcountries.com/v2/alpha/${dataGeo.countryCode}`
     );
-
-    // BUG in video:
-    // if (!resGeo.ok) throw new Error('Problem getting country');
-
-    // FIX:
     if (!res.ok) throw new Error('Problem getting country');
-
     const data = await res.json();
     console.log(data);
+
+    // 4. Render country
     renderCountry(data);
+
+    // 5. Return message
+    return `You are in ${dataGeo.city}, ${dataGeo.countryName}`;
   } catch (err) {
     console.error(`${err} 💥`);
     renderError(`💥 ${err.message}`);
+    throw err; // Re-throw inside catch so async function rejects properly
   }
 };
-whereAmI();
-whereAmI();
-whereAmI();
-console.log('FIRST');
 
-// try {
-//   let y = 1;
-//   const x = 2;
-//   y = 3;
-// } catch (err) {
-//   alert(err.message);
-// }
+// Async IIFE to handle the result of whereAmI
+(async function () {
+  console.log('1: Will get location');
+  try {
+    const city = await whereAmI();
+    console.log(`2: ${city}`);
+  } catch (err) {
+    console.error(`2: ${err.message} 💥`);
+  }
+  console.log('3: Finished getting location');
+})();
