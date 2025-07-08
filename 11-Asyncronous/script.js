@@ -278,7 +278,7 @@ const whereAmI = async function () {
   console.log('3: Finished getting location');
 })();
 */
-
+/*
 ///////////////////////////////////////
 // Running Promises in Parallel
 const get3Countries = async function (c1, c2, c3) {
@@ -356,3 +356,4 @@ Promise.any([
 ])
   .then(res => console.log(res))
   .catch(err => console.error(err));
+*/
