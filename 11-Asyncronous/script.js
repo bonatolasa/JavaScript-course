@@ -19,12 +19,12 @@ const renderCountry = function (data, className = '') {
   </article>
   `;
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  // countriesContainer.style.opacity = 1;
+  countriesContainer.style.opacity = 1;
 };
 
 const renderError = function (msg) {
   countriesContainer.insertAdjacentText('beforeend', msg);
-  // countriesContainer.style.opacity = 1;
+  countriesContainer.style.opacity = 1;
 };
 
 const getJSON = function (url, errorMsg = 'Something went wrong') {
@@ -77,7 +77,7 @@ const getJSON = function (url, errorMsg = 'Something went wrong') {
 //     return response.json();
 //   });
 // };
-
+/*
 const getCountryData = function (country) {
   // Country 1
   getJSON(`https://restcountries.com/v2/name/${country}`, 'Country not found')
@@ -107,7 +107,7 @@ const getCountryData = function (country) {
 btn.addEventListener('click', function () {
   getCountryData('ethiopia');
 });
-
+*/
 // getCountryData('australia');
 
 ///////////////////////////////////////
@@ -175,3 +175,49 @@ wait(1)
 
 Promise.resolve('abc').then(x => console.log(x));
 Promise.reject(new Error('Problem!')).catch(x => console.error(x));
+
+///////////////////////////////////////
+// Promisifying the Geolocation API
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    // navigator.geolocation.getCurrentPosition(
+    //   position => resolve(position),
+    //   err => reject(err)
+    // );
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+// getPosition().then(pos => console.log(pos));
+const whereAmI = async function () {
+  try {
+    // 1. Get current position
+    const pos = await getPosition();
+    const { latitude: lat, longitude: lng } = pos.coords;
+
+    // 2. Reverse geocoding
+    const geoRes = await fetch(
+      `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`
+    );
+    if (!geoRes.ok)
+      throw new Error(`Problem with geocoding (${geoRes.status})`);
+    const geoData = await geoRes.json();
+
+    console.log(geoData);
+    console.log(`You are in ${geoData.city}, ${geoData.countryCode}`);
+
+    // 3. Get country data using countryCode
+    const countryRes = await fetch(
+      `https://restcountries.com/v2/alpha/${geoData.countryCode}`
+    );
+    if (!countryRes.ok)
+      throw new Error(`Country not found (${countryRes.status})`);
+    const countryData = await countryRes.json();
+
+    // 4. Render country info
+    renderCountry(countryData);
+  } catch (err) {
+    console.error(`${err.message} 💥`);
+  }
+};
+
+btn.addEventListener('click', whereAmI);
